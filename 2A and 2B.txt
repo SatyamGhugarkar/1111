@@ -1,0 +1,47 @@
+2A mysql -u root -p
+SQL Queries:
+A. Design and Develop SQL DDL statements which demonstrate the use of SQL
+objects such as Table, View, Index, Sequence, Synonym, different constraints
+etc.
+B. at least 10 SQL queries on the suitable database application using SQL DML
+statements.
+
+show databases;
+create database satyam;
+use satyam;
+create table record (ID int primary key,name varchar(10) not null,Gender char);
+desc records;
+show databases;
+insert into record(ID,name,gender)
+VALUES('123','RAJ','m');
+select*from record; 
+
+
+2B
+
+create database satyam1;
+use satyam1;
+create table emp(emp_id int primary key auto_increment,emp_fname char(20) not null, emp_lname char(20) not null,emp_salary int,join_date date);
+desc emp;
+insert into emp values(1,'rajesh','kapoor',20000,'2015-02-23');
+insert into emp values(2,'raj','kapoor',40000,'2017-08-14');
+insert into emp values(3,'sham','kapoor',45000,'2017-08-14');
+select*from emp;
+update emp set emp_salary=25000 where emp_id=3;
+select*from emp;
+delete from emp where emp_id=3;
+select*from emp;
+insert into emp value(3,'sham','kapoor',25000,'2017-08-14');
+select*from emp;
+select avg(emp_salary) from emp;
+select concat(emp_fname,emp_lname) from emp where emp_salary=40000;
+select upper(concat(emp_fname,emp_lname))from emp where emp_salary=40000;
+select*from emp where year(join_date)='2015';
+select*from emp where emp_fname like 'rishabh%';
+insert into emp value(null,'little','kapoor',null'2017-08-14');
+select*from emp;
+select* from emp where emp_id in('1','2','3');
+select* from emp where emp_id not  in(1,2,3);
+select* from emp where year(join_date)between'2013' and'2016';
+select* from emp where year(join_date)between'2016' and'2018';
+

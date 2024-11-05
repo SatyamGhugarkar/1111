@@ -1,0 +1,35 @@
+chatbot
+
+
+
+class SimpleChatBot:
+    def __init__(self):
+        self.responses = {
+            "hi": "Hello! How can I help you today?",
+            "hello": "Hi there! What can I do for you?",
+            "how are you": "I'm just a computer program, but thanks for asking! How can I assist you?",
+            "bye": "Goodbye! Have a great day!",
+            "what is your name": "I am a simple chatbot created to assist you.",
+            "help": "I can answer your questions or have a simple conversation with you."
+        }
+
+    def get_response(self, user_input):
+        # Normalize the input to lowercase
+        user_input = user_input.lower()
+        
+        # Check if the user input matches any predefined responses
+        return self.responses.get(user_input, "I'm sorry, I don't understand that.")
+
+if __name__ == "__main__":
+    print("Simple ChatBot is ready to talk! Type 'bye' to exit.")
+    chatbot = SimpleChatBot()
+
+    while True:
+        user_input = input("You: ")
+        
+        if user_input.lower() == 'bye':
+            print("ChatBot: Goodbye! Have a great day!")
+            break
+        
+        response = chatbot.get_response(user_input)
+        print(f"ChatBot: {response}")

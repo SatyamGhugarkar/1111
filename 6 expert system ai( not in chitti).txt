@@ -1,0 +1,56 @@
+6 expert system
+
+
+diagnosis_knowledge_base = {
+    "fever": ["flu", "COVID-19", "bacterial infection"],
+    "cough": ["flu", "COVID-19", "allergy"],
+    "sore throat": ["flu", "COVID-19", "strep throat"],
+    "shortness of breath": ["COVID-19", "asthma"],
+    "headache": ["migraine", "tension headache"],
+}
+
+def get_user_symptoms():
+    """Prompt the user to enter their symptoms."""
+    print("Please enter your symptoms (comma-separated):")
+    symptoms_input = input()
+    symptoms = [symptom.strip().lower() for symptom in symptoms_input.split(",")]
+    return symptoms
+
+def diagnose(symptoms):
+    """Diagnose possible conditions based on user symptoms."""
+    possible_diagnoses = set()
+    
+    for symptom in symptoms:
+        if symptom in diagnosis_knowledge_base:
+            possible_diagnoses.update(diagnosis_knowledge_base[symptom])
+    
+    return possible_diagnoses
+
+def main():
+    """Main function to run the expert system."""
+    print("Welcome to the Medical Diagnosis Expert System!")
+    
+    symptoms = get_user_symptoms()
+    diagnoses = diagnose(symptoms)
+    
+    if diagnoses:
+        print("Possible diagnoses based on your symptoms:")
+        for diagnosis in diagnoses:
+            print(f"- {diagnosis}")
+    else:
+        print("No matching diagnoses found for the provided symptoms.")
+
+if __name__ == "__main__":
+    main()
+
+
+
+Output
+PS C:\Users\risha\Desktop\ai py> python -u "c:\Users\risha\Desktop\ai py\expert.py"
+Welcome to the Medical Diagnosis Expert System!
+Please enter your symptoms (comma-separated):
+fever
+Possible diagnoses based on your symptoms:
+- COVID-19
+- bacterial infection
+- flu

@@ -1,0 +1,36 @@
+create database hell;
+use hell;
+create table records(
+roll_no int primary key, name varchar(100), marks int);
+
+
+
+//////in excel sheet create 3 roll_no , name , marks //////
+
+
+//////after this import hell file saved and created in excel sheet and csv///////  table data import wizard ///////
+
+
+
+/////to export just export table with csv extension and save the file/////// 
+
+
+
+
+for export(optional)
+CREATE DATABASE vehicles;
+USE vehicles;
+CREATE TABLE vehicle_info (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    no_of_tyres INT NOT NULL,
+    name_of_vehicle VARCHAR(100) NOT NULL,
+    mode VARCHAR(50) NOT NULL
+);
+INSERT INTO vehicle_info (no_of_tyres, name_of_vehicle, mode)
+VALUES
+(2, 'Harley Davidson', 'manual'),
+(4, 'Toyota Corolla', 'automatic'),
+(18, 'Kenworth Truck', 'manual'),
+(4, 'Tesla Model S', 'automatic'),
+(3, 'Piaggio Ape', 'manual');
+SELECT * FROM vehicle_info;

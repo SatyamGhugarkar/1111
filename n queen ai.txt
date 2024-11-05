@@ -1,0 +1,75 @@
+n queen
+
+
+
+class NQueenProblem:
+    def __init__(self, n):
+        self.N = n
+
+    def print_solution(self, board):
+        for row in board:
+            print(" ".join(str(x) for x in row))
+
+    def is_safe(self, board, row, col):
+        # Check this row on left side
+        for i in range(col):
+            if board[row][i] == 1:
+                return False
+
+        # Check upper diagonal on left side
+        for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
+            if board[i][j] == 1:
+                return False
+
+        # Check lower diagonal on left side
+        for i, j in zip(range(row, self.N), range(col, -1, -1)):
+            if board[i][j] == 1:
+                return False
+
+        return True
+
+    def solve_nq_util(self, board, col):
+        if col >= self.N:
+            return True
+
+        for i in range(self.N):
+            if self.is_safe(board, i, col):
+                board[i][col] = 1
+
+                if self.solve_nq_util(board, col + 1):
+                    return True
+
+                board[i][col] = 0  # BACKTRACK
+
+        return False
+
+    def solve_nq(self):
+        board = [[0 for _ in range(self.N)] for _ in range(self.N)]
+
+        if not self.solve_nq_util(board, 0):
+            print("Solution does not exist")
+            return False
+
+        self.print_solution(board)
+        return True
+
+if __name__ == "__main__":
+    try:
+        n = int(input("Enter the number of queens (N): "))
+        if n <= 0:
+            print("Please enter a positive integer.")
+        else:
+            queen = NQueenProblem(n)
+            queen.solve_nq()
+    except ValueError:
+        print("Invalid input. Please enter a positive integer.")
+
+
+
+
+output
+Enter the number of queens (N): 4
+0 0 1 0
+1 0 0 0
+0 0 0 1
+0 1 0 0

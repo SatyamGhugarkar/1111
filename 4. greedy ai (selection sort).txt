@@ -1,0 +1,29 @@
+4.
+
+
+def selectionsort(a):
+  for i in range (0,n):
+    min=i
+    for j in range (i+1,n):
+      if a[j]<a[min]:
+        min=j
+    a[i],a[min]= a[min],a[i]
+  return a
+n=int(input("Enter no. of elements  "))
+a=[]
+
+for i in range (0,n): 
+  a.append(int(input("Enter element  ")))
+print(selectionsort(a))
+
+
+
+
+Output
+PS C:\Users\risha\Desktop\ai py> python -u "c:\Users\risha\Desktop\ai py\selection.py"
+Enter no. of elements  4
+Enter element  22
+Enter element  23
+Enter element  25
+Enter element  30
+[22, 23, 25, 30]
